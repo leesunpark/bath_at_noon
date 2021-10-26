@@ -27,19 +27,17 @@ def add_comment(request):
     if "POST" == request.method:
         name = request.POST.get("new_name")
         content = request.POST.get("new_content")
-        if not name:
-            return HttpResponse('Invalid name')
-        if not content:
-            return HttpResponse('Invalid content')
-        comment_instance = Comment(name=name, content=content, date=timezone.now())
-        comment_instance.save() 
-
-    context ={
-        'comment_instance' : comment_instance,
-    }
         
-    
-    return redirect('index')
+        if not name:
+            return HttpResponse('아이디를 입력해주세요.') 
+            
+        if not content:
+            return HttpResponse('댓글을 입력해주세요.')
+        
+        if name and content:
+            comment_instance = Comment(name=name, content=content, date=timezone.now())
+            comment_instance.save() 
+            return redirect('index')
 
     '''
     comment_instance =get_object_or_404(Comment)
