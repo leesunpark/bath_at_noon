@@ -490,9 +490,15 @@ a {
 	<div class="u_cbox_write_wrap">
 	<div class="u_cbox_write_box u_cbox_type_logged_in">
   
+    <!--2021년 말까지만 운영 후 댓글창 닫기
     <form method="post" action="add">
         {% csrf_token %} 
-
+    -->
+    <script>
+        function submitAlert() {
+            alert("댓글 입력 기능은 종료 되었습니다.")
+        }
+    </script>
         <div class="u_cbox_write">
             <div class="u_cbox_write_inner">
                 
@@ -527,7 +533,7 @@ a {
                         
                             <div class="u_cbox_upload">
                                 <div class="u_cbox_addition"></div>
-                                <button type="submit" class="u_cbox_btn_upload">
+                                <button type="submit" class="u_cbox_btn_upload" onclick="submitAlert()">
                                 <span class="u_cbox_ico_upload"></span>
                                 <span class="u_cbox_txt_upload">등록</span>
                                 </button>
@@ -536,9 +542,11 @@ a {
                     </div>
             </div>
         </div>
+    <!--form 기능 닫기 위에 이어서
     </form>
+    -->
     
-	<!--여기까지 댓글쓰는부분-->
+	<!--여기까지 댓글쓰는 부분-->
     
 
 	<!--댓글 보여지는 부분-->
